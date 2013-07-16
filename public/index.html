@@ -61,7 +61,7 @@
         <div class="span12" ng-show="searchListResults">
           <ul class="nav nav-tabs nav-stacked">
             <li ng-repeat="result in searchListResults">
-              <a href="/#/friends/{{result.uid}}">{{result.first_name}} {{result.middle_name}} {{result.last_name}}</a>
+              <a href="/#/friends/{{result.uid}}">{{result | constructDisplayName}}</a>
             </li>
           </ul>
         </div>
