@@ -2,74 +2,18 @@
 
 Save memos about your Facebook friends to note down where and how you met them, or just any miscellaneous notes you wish to take down regarding any friend in particular.
 
-## Setup instructions (localhost)
+## Setup
 
-Install Redis and node and run redis-server (port 6379)
+This app can run on any host that can host a static file.
 
-Make a copy of start.example
-
-```
-$ cp start.example start
-```
-
-Edit YOUR_FB_APP_ID, YOUR_FB_APP_SECRET, FIREBASE_APP_URL and FIREBASE_APP_SECRET in "start" to match your Facebook and Firebase App details
-
-
-
-Make "start" executable
+Make a copy of public/js/clientEnv.js.example
 
 ```
-$ chmod +x start
+$ cp public/js/clientEnv.js.example public/js/clientEnv.js
 ```
 
-Install grunt-cli
+Edit your-firebase-url and your-fb-app-id to match your Firebase and Facebook app settings.
 
-```
-npm install -g grunt-cli
-```
+Configure your Firebase app settings to allow authentication from the host your index.html is hosted on.
 
-Run the application
-
-```
-$ ./start
-```
-
-Goto http://locahost:3000 in your web browser to start using app.
-
-
-## Setup instructions (Heroku)
-
-First, login to heroku.
-
-```
-$ heroku login 
-```
-
-Then execute the following commands:
-
-```
-$ heroku create
-$ heroku addons:add rediscloud:20
-$ heroku config:set NODE_ENV=production
-```
-
-Configure your Facebook App variables and hostname.
-```
-$ heroku config:set FACEBOOK_APP_ID="your-app-id"
-$ heroku config:set FACEBOOK_APP_SECRET="your-app-secret"
-$ heroku config:set FIREBASE_APP_URL="your-app-url"
-$ heroku config:set FIREBASE_APP_SECRET=""your-app-secret"
-$ heroku config:set HOSTNAME="http://your-heroku-app-hostname"
-```
-
-Deploy your App.
-
-```
-$ git push heroku master
-```
-
-Open the app in your browser.
-
-```
-heroku open
-```
+Access index.html at your host to start using the application.
