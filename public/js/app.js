@@ -104,7 +104,6 @@
     }]
   };
 
-
   function MemoCtrl($scope, $routeParams, $location, angularFire, fbFriends, user, constructDisplayName) {
     if (!user){
       return $location.path('/login');
@@ -156,6 +155,8 @@
     $location.path("/login");
   }
 
+
+  /* factories */
   app.factory('userProvider', function($q, $rootScope, $location, $timeout) {
     var cachedUser = null;
     var authResponseDeferred = $q.defer();
@@ -195,8 +196,6 @@
       onLoginStateChange: onLoginStateChange
     }
   });
-
-
 
   app.factory("fbFriendsProvider", function($q, userProvider, $rootScope, $location, $timeout) {
     var cached = undefined;
@@ -239,7 +238,7 @@
             if (!error) {
               cached = response.data;
             }
-            
+
             $timeout(function(){
               deferred.resolve(response.data);
             });
